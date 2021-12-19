@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CNN</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
+  <style type="text/css">
+    body{
+      background-image: url("https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+      background-repeat: no-repeat;
+      background-size: 100% 140%;
+      opacity: 0.9;
+    }
+  </style>
+
+</head>
+<body>
+
+<div class="container">
+  <h1 class="jumbotron bg-primary" style="font-family: fantasy;">Image Classfication using CNN</h1>
+  <br><br>
+  <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd" style="color: white;">Upload Your Image :</label>
+      <div class="form-inline">          
+        <input type="file" class="form-control" placeholder="ImageToBePredicted" style="width: 400px"  name="my_image" id="pwd">
+        <button type="submit" class="btn btn-success" style="margin-left: 10px; width: 100px">Predict</button>
+      </div>
+    </div>
+  </form>
+
+	{% if prediction %}
+  <div class="row">
+    <div class="col-sm-6"><img src="{{img_path}}" height="400px" width="400px" style="margin-bottom: 35px"></div>
+    <div class="col-sm-6"><h2 style="color: white; margin-top: 200px; ">  Prediction Result  : <i> {{prediction}} </i></h2></div>
+  </div>
+	
+
+	{% endif %}
+
+</div>
+
+</body>
+</html>
